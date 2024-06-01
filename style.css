@@ -39,7 +39,7 @@ body{
     background-color: var(--black);
     color: var(--White);
     padding: 1.5em 0 0;
-    overflow-x: clip;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +75,7 @@ main{
     position: relative;
     width: 80%;
     min-width: 980px;
+    overflow: hidden;
 }
 .intro{
     grid-area: intro;
@@ -134,12 +135,17 @@ hr{
 }
 .skills{
     margin-top: 3em;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5%;
     position: relative;
     margin-bottom: 3em;
+    width: 100%;
+    overflow-x: hidden;
+}
+.content{
+    display: flex;
     width: 80%;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin: 0 auto;
 }
 .skills div{
     min-width: 270px;
@@ -150,7 +156,7 @@ hr{
 }
 #rings-pattern-skills{
     position: absolute;
-    right: -420px;
+    right: -320px;
     bottom: 10px;
 }
 .projects-section{
