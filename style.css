@@ -20,6 +20,7 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
@@ -39,10 +40,11 @@ body{
     background-color: var(--black);
     color: var(--White);
     padding: 1.5em 0 0;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* position: relative; */
+    overflow-x: hidden;
 }
 nav{
     display: flex;
@@ -68,15 +70,21 @@ svg:hover{
     cursor: pointer;
 }
 main{
+    position: relative;
+    width: 80%;
     display: grid;
     grid-template-columns: 1.25fr  1fr;
     grid-template-areas: 
         'intro profileImg';
-    position: relative;
-    width: 80%;
-    min-width: 980px;
-    /* overflow-x: hidden; */
 }
+/* .main-content{
+    display: grid;
+    grid-template-columns: 1.25fr  1fr;
+    grid-template-areas: 
+        'intro profileImg';
+    width: 80%;
+    margin: 0 auto;
+} */
 .intro{
     grid-area: intro;
 }
@@ -85,11 +93,13 @@ main{
     position: relative;
     bottom: 105px;
     z-index: 0;
-    overflow: clip;
+    /* min-width: 322px; */
 }
 #profileImg{
     width: 100%;
+    height: 720px;
     display: block;
+    object-fit: cover;
 }
 .intro h1{
     font-size: 4.5rem;
@@ -127,7 +137,7 @@ h1 span{
 }
 #circle-pattern{
     position: absolute;
-    left: 480px ;
+    left: 500px ;
     bottom: 175px;
 }
 hr{
@@ -369,17 +379,16 @@ footer{
     }
     main{
         width: 90%;
-        min-width: 700px;
+        /* min-width: 900px; */
     }
-    
     .profile{
             right: -50px;
     }
-    #circle-pattern{
-        position: absolute;
-        left: 830px;
-        bottom: 105px;
-    }
+    /* #circle-pattern{
+        left: 300px;
+        background-color: green;
+
+    } */
     #rings-pattern{
         left: -250px;
         top: 0px;
@@ -391,7 +400,7 @@ footer{
         margin-bottom: 2em;
         max-width: 100%;
     }
-    .skills{
+    .content{
         width: 90%;
     }
     hr{
@@ -444,6 +453,16 @@ footer{
         width: 90%;
         min-width: 300px;
     }
+    /* .main-content{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            'profileImg'
+            'intro';
+        grid-auto-rows: auto;
+        position: relative;
+        width: 90%;
+        min-width: 300px;
+    } */
     .profile{
         position: relative;
         bottom: 105px;
@@ -464,10 +483,15 @@ footer{
         margin-bottom: 4em;
     }
     #circle-pattern{
-        right: 90;
-        bottom: 415px;
+        left: 380px;
+        /* background-color: red; */
+        bottom: 440px;
     }
-    .skills{
+    /* .skills{
+        width: 90%;
+        justify-content: center;
+    } */
+    .content{
         width: 90%;
         justify-content: center;
     }
