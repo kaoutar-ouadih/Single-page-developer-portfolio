@@ -75,7 +75,7 @@ main{
     position: relative;
     width: 80%;
     min-width: 980px;
-    overflow: hidden;
+    /* overflow-x: hidden; */
 }
 .intro{
     grid-area: intro;
