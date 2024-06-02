@@ -8,55 +8,57 @@ const messageInput = document.querySelector('#message');
 const emailErrorMsg = document.querySelector('#email-error-msg');
 const emailErrorSvg = document.querySelector('#email-error-svg');
 const emailInput = document.querySelector('#email');
-const pattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+const emailPattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+
+function errorHandler(fieldErrorMsg, fieldErrorSvg, fieldInput, valid = false){
+    if (!valid){
+        fieldErrorMsg.style.display = 'block';
+        fieldErrorMsg.classList.add('error-msg');
+        fieldErrorSvg.style.display = 'block';
+        fieldInput.classList.add('input-error')
+    } else {
+        fieldErrorMsg.style.display = 'none';
+        fieldErrorMsg.classList.remove('error-msg');
+        fieldErrorSvg.style.display = 'none';
+        fieldInput.classList.remove('input-error');
+        fieldInput.classList.add('valid-input');
+    }
+}
+function clearForm(){
+    nameInput.classList.remove('valid-input');
+    emailInput.classList.remove('valid-input');
+    messageInput.classList.remove('valid-input');
+    contactForm.reset();
+}
 
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     if(data.name.length == 0){
-        nameErrorMsg.style.display = 'block';
-        nameErrorMsg.classList.add('error-msg');
-        nameErrorSvg.style.display = 'block';
-        nameInput.classList.add('input-error');
+        errorHandler(nameErrorMsg,nameErrorSvg,nameInput)
+
     }else{
-        nameErrorMsg.style.display = 'none';
-        nameErrorMsg.classList.remove('error-msg');
-        nameErrorSvg.style.display = 'none';
-        nameInput.classList.remove('input-error');
-        nameInput.classList.add('valid-input');
+        errorHandler(nameErrorMsg,nameErrorSvg,nameInput, true)
+
     }
-    if(data.email.length == 0 || !pattern.test(data.email)){
-        emailErrorMsg.style.display = 'block';
-        emailErrorMsg.classList.add('error-msg');
-        emailErrorSvg.style.display = 'block';
-        emailInput.classList.add('input-error');
+    if(data.email.length == 0 || !emailPattern.test(data.email)){
+        errorHandler(emailErrorMsg,emailErrorSvg,emailInput)
+
     }
     else{
-        emailErrorMsg.style.display = 'none';
-        emailErrorMsg.classList.remove('error-msg');
-        emailErrorSvg.style.display = 'none';
-        emailInput.classList.remove('input-error');
-        emailInput.classList.add('valid-input');
+        errorHandler(emailErrorMsg,emailErrorSvg,emailInput, true)
+
     }
     if(data.message.length == 0){
-        messageErrorMsg.style.display = 'block';
-        messageErrorMsg.classList.add('error-msg');
-        messageErrorSvg.style.display = 'block';
-        messageInput.classList.add('input-error');
+        errorHandler(messageErrorMsg,messageErrorSvg,messageInput)
+
     }
     else{
-        messageErrorMsg.style.display = 'none';
-        messageErrorMsg.classList.remove('error-msg');
-        messageErrorSvg.style.display = 'none';
-        messageInput.classList.remove('input-error');
-        messageInput.classList.add('valid-input');
-    }
-    if(data.name.length != 0 && data.email.length != 0 && data.message.length != 0 && pattern.test(data.email)){
-        nameInput.classList.remove('valid-input');
-        emailInput.classList.remove('valid-input');
-        messageInput.classList.remove('valid-input');
-        contactForm.reset();
-    }
+        errorHandler(messageErrorMsg,messageErrorSvg,messageInput, true)
 
+    }
+    if(data.name.length != 0 && data.email.length != 0 && data.message.length != 0 && emailPattern.test(data.email)){
+        clearForm()
+    }
 })

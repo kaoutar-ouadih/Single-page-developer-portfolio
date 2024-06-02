@@ -1,31 +1,6 @@
-@font-face {
-    font-family: "Space Grotesk bold";
-    src: url(./assets/fonts/static/SpaceGrotesk-Bold.ttf);
+@import url(./font.css);
+@import url(./reset.css);
 
-}
-@font-face {
-    font-family: "Space Grotesk Medium";
-    src: url(./assets/fonts/static/SpaceGrotesk-Medium.ttf);
-}
-@font-face {
-    font-family: "Space Grotesk";
-    src: url(./assets/fonts/SpaceGrotesk-VariableFont_wght.ttf);
-}
-
-/* CSS reset */
-*, ::before, ::after{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-html{
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-a{
-    text-decoration: none;
-    color: var(--White);
-}
 :root{
     --black: #151515;
     --Dark-Grey: #242424;
@@ -45,6 +20,9 @@ body{
     align-items: center;
     /* position: relative; */
     overflow-x: hidden;
+}
+a{
+    color: var(--White);
 }
 nav{
     display: flex;
@@ -77,14 +55,6 @@ main{
     grid-template-areas: 
         'intro profileImg';
 }
-/* .main-content{
-    display: grid;
-    grid-template-columns: 1.25fr  1fr;
-    grid-template-areas: 
-        'intro profileImg';
-    width: 80%;
-    margin: 0 auto;
-} */
 .intro{
     grid-area: intro;
 }
@@ -93,7 +63,6 @@ main{
     position: relative;
     bottom: 105px;
     z-index: 0;
-    /* min-width: 322px; */
 }
 #profileImg{
     width: 100%;
@@ -310,7 +279,6 @@ hr{
     position: absolute;
     bottom: 50px;
     left: -200px;
-    /* overflow: clip; */
 } 
 footer{
     width: 100%;
@@ -379,16 +347,10 @@ footer{
     }
     main{
         width: 90%;
-        /* min-width: 900px; */
     }
     .profile{
             right: -50px;
     }
-    /* #circle-pattern{
-        left: 300px;
-        background-color: green;
-
-    } */
     #rings-pattern{
         left: -250px;
         top: 0px;
@@ -431,7 +393,6 @@ footer{
         cursor: none;
     }
 }
-
 @media(max-width:730px){
     body{
         padding: 0;
@@ -453,16 +414,6 @@ footer{
         width: 90%;
         min-width: 300px;
     }
-    /* .main-content{
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            'profileImg'
-            'intro';
-        grid-auto-rows: auto;
-        position: relative;
-        width: 90%;
-        min-width: 300px;
-    } */
     .profile{
         position: relative;
         bottom: 105px;
@@ -484,13 +435,8 @@ footer{
     }
     #circle-pattern{
         left: 380px;
-        /* background-color: red; */
         bottom: 440px;
     }
-    /* .skills{
-        width: 90%;
-        justify-content: center;
-    } */
     .content{
         width: 90%;
         justify-content: center;

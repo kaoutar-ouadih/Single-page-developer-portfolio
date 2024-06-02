@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Space Grotesk bold";
+    src: url(../assets/fonts/static/SpaceGrotesk-Bold.ttf);
+
+}
+@font-face {
+    font-family: "Space Grotesk Medium";
+    src: url(../assets/fonts/static/SpaceGrotesk-Medium.ttf);
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
